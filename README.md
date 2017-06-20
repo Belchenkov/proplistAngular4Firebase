@@ -1,6 +1,6 @@
 # Angular4Proplistings
 
-#####Create a property listings application that uses Firebase database, authentication and file storage.
+##### Create a property listings application that uses Firebase database, authentication and file storage.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.6.
 
