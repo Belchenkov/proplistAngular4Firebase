@@ -4,6 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { FlashMessagesModule } from 'angular2-flash-messages';
 import { RouterModule, Routes } from '@angular/router';
+import { AngularFireModule } from 'angularfire2';
+import { FirebaseService } from  './services/firebase.service';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -28,6 +31,15 @@ const appRoutes: Routes = [
   }
 ];
 
+export const firebaseConfig = {
+    apiKey: "AIzaSyDXkoH4Ay_k-hspAzl4kkDUGVENQrDeqIo",
+    authDomain: "proplisting-20081.firebaseapp.com",
+    databaseURL: "https://proplisting-20081.firebaseio.com",
+    projectId: "proplisting-20081",
+    storageBucket: "proplisting-20081.appspot.com",
+    messagingSenderId: "886667372815"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,9 +55,11 @@ const appRoutes: Routes = [
     FormsModule,
     HttpModule,
     FlashMessagesModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    AngularFireDatabaseModule,
+    AngularFireModule.initializeApp(firebaseConfig),
   ],
-  providers: [],
+  providers: [FirebaseService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
